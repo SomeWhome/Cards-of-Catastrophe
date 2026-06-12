@@ -5,19 +5,27 @@ public class CardSpawner : MonoBehaviour
 
     public GameObject[] Cards;
     public bool[] Delt;
+    public GameObject[] SpawnedCards;
     public bool PlayerGo = true;
     private int CollectiveScore = 0;
     private bool AllCardPicked = false;
     private bool delt;
     private int cardsinhand = 0;
     private Animator animator;
-    public GameObject[] SpawnedCards;
     public int E = 0;
 
     public CardValues CardValues;
     public int AmmountofCardsSpawned = 0;
     public Vector3 spawnPosition = Vector3.zero;
     public Vector3 positionRange = new Vector3(5f, 0f, 5f);
+
+    private void Start()
+    {
+        Hit();
+        PlayerGo = true;
+        Hit();
+        PlayerGo = true;
+    }
     public void Hit()
     {
         if (PlayerGo && CollectiveScore <= 21)
@@ -37,13 +45,7 @@ public class CardSpawner : MonoBehaviour
             Debug.LogError("No prefabs assighned in the inspector!");
             return;
         }
-        if (cardsinhand == 0)
-        {
 
-            CardValues CardAnimation = SpawnedCards[0].GetComponent<CardValues>();
-            CardAnimation.doaflip();
-            cardsinhand += 1;
-        }
 
 
 
@@ -81,7 +83,13 @@ public class CardSpawner : MonoBehaviour
 
             SpawnedCards[E] = Cards[randomIndex];
             E += 1;
+            if (cardsinhand == 0)
+            {
 
+                CardValues CardAnimation = SpawnedCards[0].GetComponent<CardValues>();
+                CardAnimation.doaflip();
+                cardsinhand += 1;
+            }
         }
     }
 }
