@@ -76,6 +76,12 @@ public class CardSpawner : MonoBehaviour
             CollectiveScore += cardStore.GetComponent<CardValues>().cardValue;
             AmmountofCardsSpawned += 1;
 
+            Debug.Log(CollectiveScore);
+            PlayerGo = false;
+
+            SpawnedCards[E] = Cards[randomIndex];
+            E += 1;
+
         }
     }
 }
