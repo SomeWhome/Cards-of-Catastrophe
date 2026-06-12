@@ -240,6 +240,7 @@ MonoBehaviour:
   - {fileID: 0}
   PlayerGo: 1
   E: 0
+  targetObject: {fileID: 67639515}
   CardValues: {fileID: 0}
   AmmountofCardsSpawned: 0
   spawnPosition: {x: 0, y: 0, z: 0}

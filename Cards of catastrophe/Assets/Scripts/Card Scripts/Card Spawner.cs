@@ -13,6 +13,8 @@ public class CardSpawner : MonoBehaviour
     private int cardsinhand = 0;
     private Animator animator;
     public int E = 0;
+    public Transform targetObject;
+
 
     public CardValues CardValues;
     public int AmmountofCardsSpawned = 0;
@@ -73,8 +75,7 @@ public class CardSpawner : MonoBehaviour
                 Debug.LogError($"prefab at index {randomIndex} is null");
                 return;
             }
-            Vector3 finalposition = spawnPosition;
-            GameObject cardStore = Instantiate(Cards[randomIndex], finalposition, Quaternion.identity);
+            GameObject cardStore = Instantiate(Cards[randomIndex], targetObject.position, Quaternion.identity);
             CollectiveScore += cardStore.GetComponent<CardValues>().cardValue;
             AmmountofCardsSpawned += 1;
 
