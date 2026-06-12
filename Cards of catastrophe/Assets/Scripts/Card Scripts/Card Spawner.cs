@@ -10,6 +10,7 @@ public class CardSpawner : MonoBehaviour
     private bool AllCardPicked = false;
     private bool delt;
 
+    public CardValues CardValues;
     public int AmmountofCardsSpawned = 0;
     public Vector3 spawnPosition = Vector3.zero;
     public Vector3 positionRange = new Vector3(5f, 0f, 5f);
@@ -57,8 +58,12 @@ public class CardSpawner : MonoBehaviour
                 return;
             }
             Vector3 finalposition = spawnPosition;
-            Instantiate(Cards[randomIndex], finalposition, Quaternion.identity);
+            GameObject cardStore = Instantiate(Cards[randomIndex], finalposition, Quaternion.identity);
+            CollectiveScore += cardStore.GetComponent<CardValues>().cardValue;
             AmmountofCardsSpawned += 1;
+            Debug.Log(CollectiveScore);
+            PlayerGo = false;
+
         }
     }
 }
