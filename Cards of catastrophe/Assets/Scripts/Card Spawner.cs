@@ -7,10 +7,10 @@ public class CardSpawner : MonoBehaviour
     public bool[] Delt;
     public bool PlayerGo = true;
     private int CollectiveScore = 0;
-    private bool AllCardPicked = true;
+    private bool AllCardPicked = false;
     private bool delt;
 
-    public int AmmountofCardsSpawned = 0;  
+    public int AmmountofCardsSpawned = 0;
     public Vector3 spawnPosition = Vector3.zero;
     public Vector3 positionRange = new Vector3(5f, 0f, 5f);
     public void Hit()
@@ -19,6 +19,7 @@ public class CardSpawner : MonoBehaviour
         {
             if (!AllCardPicked)
             {
+                
                 SpawnRandomCard();
             }
         }
@@ -32,7 +33,7 @@ public class CardSpawner : MonoBehaviour
             return;
         }
 
-        if (AmmountofCardsSpawned == 11)
+        if (AmmountofCardsSpawned != 11)
         {
             int randomIndex = Random.Range(0, Cards.Length);
             if (Delt[randomIndex])
