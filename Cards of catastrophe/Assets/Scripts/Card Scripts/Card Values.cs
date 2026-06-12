@@ -4,6 +4,7 @@ public class CardValues : MonoBehaviour
 {
     public int cardValue;
     public int CardValueChange;
+    public Animator animator;
 
     public void CardValuesChange(int CardValueChange, int cardValue)
     {
@@ -13,7 +14,7 @@ public class CardValues : MonoBehaviour
 
     public void doaflip()
     {
-
+        animator.Play("doaflip");
     }
 
 }
