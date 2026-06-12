@@ -8,5 +8,12 @@ public class CardValues : MonoBehaviour
     public void CardValuesChange(int CardValueChange, int cardValue)
     {
         cardValue += CardValueChange;
+
     }
+
+    public void doaflip()
+    {
+
+    }
+
 }
